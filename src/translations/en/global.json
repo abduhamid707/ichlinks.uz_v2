@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "title": "Intangible cultural heritage of Uzbekistan",
+    "home": "Home",
+    "aboutProject": "About project",
+    "nmm": "NMM",
+    "news": "News",
+    "regulatoryDocuments": "Regulatory documents",
+    "material": "Material",
+    "contact": "Contact"
+  },
+  "footer": {
+    "usefulLinks": "Useful links",
+    "allRightsReserved": "All right reserved"
+  }
+}

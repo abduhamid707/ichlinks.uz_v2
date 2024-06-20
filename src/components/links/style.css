@@ -1,0 +1,30 @@
+.links {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 60px;
+    margin-top: 0.6em;
+    gap: 1.2em;
+  }
+
+  .links button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(240, 232, 232, 0.401);
+    /* filter: blur(2px); */
+    gap: 0px;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 30px;
+  }
+  
+  .links button:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+  }
+
+.links button img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

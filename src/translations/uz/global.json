@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "title": "O'zbekiston nomoddiy madaniy merosi",
+    "home": "Asosiy",
+    "aboutProject": "Loyiha haqida",
+    "nmm": "NMM",
+    "news": "Yangiliklar",
+    "regulatoryDocuments": "Normativ xujjatlar",
+    "material": "Material",
+    "contact": "Aloqa"
+  },
+  "footer": {
+    "usefulLinks": "Foydali havolalar",
+    "allRightsReserved": "Barcha huquqlar himoyalangan"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "navbar": {
+    "title": "Нематериальное культурное наследие Узбекистана",
+    "home": "Главная",
+    "aboutProject": "О проекте",
+    "nmm": "НММ",
+    "news": "Новости",
+    "regulatoryDocuments": "Нормативные документы",
+    "material": "Материал",
+    "contact": "Связаться"
+  },
+  "footer": {
+    "usefulLinks": "Полезные ссылки",
+    "allRightsReserved": "Все права защищены"
+  }
+}

@@ -1,0 +1,89 @@
+.search-page {
+    background: rgb(34, 45, 48);
+    height: 100vh;
+}
+
+.search-page .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.search-page .container .top {
+    display: flex;
+    padding: 3em 2em;
+    justify-content: end;
+}
+
+.search-page .container .top svg {
+    color: #ffff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.search-page .title {
+    font-family: Bebas Neue;
+    font-size: 27px;
+    font-weight: 600;
+    color: #ffff;
+    line-height: 63.6px;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+
+.search-page .bottom {
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    padding-right: 25px;
+    border-bottom: 1px solid #fff;
+}
+
+
+.search-page .bottom .search_btn{
+width: 5%;
+text-align: left;
+padding-left: 10px;
+}
+
+
+.search-page .bottom input {
+    width: 90%;
+    height: 50px;
+    padding: 5px;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: Roboto Condensed;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: #fff;
+}
+
+.search-page .bottom input::placeholder {
+    font-family: Roboto Condensed;
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 4px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: #fff;
+}
+
+.search-page .bottom button {
+    background: none;
+    color: #fff;
+    width: 5%;
+    font-family: Roboto Condensed;
+    font-size: 16.6px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-align: right;
+   cursor: pointer;
+    border: none;
+}

@@ -1,0 +1,80 @@
+footer {
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  /* padding: 2; */
+  padding: 2em 4.5em 1.7em 4.5em;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer .contents {
+  display: flex;
+  gap: 7em;
+  /* justify-content: space-between; */
+}
+
+footer .contents .left,
+footer .contents .center,
+footer .contents .right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+}
+
+footer .contents .left ul,
+footer .contents .center ul,
+footer .contents .right ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+footer .contents .left ul li,
+footer .contents .center ul li,
+footer .contents .right ul li {
+  display: flex;
+  gap: 9px;
+}
+
+footer .contents .left h3 {
+  font-family: Bebas Neue;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+footer .contents .right h3,
+footer .contents .center h3 {
+  font-family: Bebas Neue;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 41px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+footer .contents .left li,
+footer .contents .right li,
+footer .contents .center li {
+  font-family: Bebas Neue;
+  font-size: 13.9px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+footer .bottom_txt{
+font-family: Roboto;
+font-size: 15.8px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0.05em;
+text-align: left;
+margin-top: 1.5em;
+cursor: pointer;
+}

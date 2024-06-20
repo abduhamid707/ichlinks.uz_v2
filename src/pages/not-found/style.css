@@ -1,0 +1,65 @@
+.not-found-page {
+  color: #ffffff;
+  min-height: 75vh;
+}
+
+.not-found-page .container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  padding: 4em 0;
+}
+
+.not-found-page .container .left {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.not-found-page .container .left .txts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.not-found-page .container .left .txts h5 {
+  font-family: Roboto Condensed;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 54px;
+  letter-spacing: 0.04em;
+}
+.not-found-page .container .left .txts p {
+  font-family: Roboto Condensed;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0.04em;
+}
+
+.not-found-page .container .right {
+  width: 50%;
+}
+
+.not-found-page .container .left h1 {
+  font-size: 80px;
+}
+
+.not-found-page .container .right .links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1.5em;
+}
+
+.not-found-page .container .right .links li {
+  width: 420px;
+  height: 47px;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  background: none;
+  padding: 12px;
+  gap: 10px;
+}

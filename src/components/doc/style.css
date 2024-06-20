@@ -1,0 +1,53 @@
+.doc {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 1px solid; */
+    background: #0F0F0F;
+    padding: 1.5em;
+  }
+  
+ .doc .left {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
+  
+
+ .doc .left .rar img {
+    width: 50px;
+    height: 55px;
+  }
+ .doc .left .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+    justify-content: space-between;
+  }
+.doc .left .txt .top {
+    font-family: Roboto Condensed;
+    font-size: 14px;
+    font-weight: 700;
+    /* color: ; */
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+  
+ .doc .left .txt .bottom {
+    display: flex;
+    gap: 2em;
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+  
+.doc .right {
+    display: flex;
+    gap: 0.6em;
+    align-items: end;
+}
+  
