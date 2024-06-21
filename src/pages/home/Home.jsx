@@ -32,6 +32,7 @@ import axios from "axios";
 import VideoCardGal from "../../components/VideoCard/VideoCardGal";
 import { useTranslation } from "react-i18next";
 import context from "../../context";
+
 const Home = () => {
 
   const { currentLang } = useContext(context);
@@ -167,9 +168,6 @@ const Home = () => {
   //   </div>
   // </section>
   // console.log(slide.img_path);
-  slidesData.map(item => {
-    console.log(item.img_path);
-  })
   return (
     <div className="page home-page">
 
@@ -198,7 +196,7 @@ const Home = () => {
                       <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="left">
                           <p>Eng yaxshi madaniy meroslar </p>
-                          <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+                          <h2>{currentLang == 'uz' ?  slide?.text_uz : currentLang == 'ru' ? slide?.text_ru : slide?.text_en}</h2>
                           <div className="buttons">
                             <button className="more">batafsil</button>
                           </div>
