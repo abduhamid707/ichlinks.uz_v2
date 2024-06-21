@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import "./style.css";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { MdNavigateNext } from "react-icons/md";
@@ -30,16 +30,28 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import HomeNewsCard from "../../components/HomeNewsCard/HomeNewsCard";
 import axios from "axios";
 import VideoCardGal from "../../components/VideoCard/VideoCardGal";
+import { useTranslation } from "react-i18next";
+import context from "../../context";
 const Home = () => {
+
+  const { currentLang } = useContext(context);
+  const [t, i18n] = useTranslation('global')
   const [slidesData, setSlidesData] = useState([]);
   const [videosData, setVideosData] = useState([]);
+  const [statistics, setStatistics] = useState();
+  const [partners, setPartners] = useState([]);
+  const [newsDatas, setNewsDatas] = useState([]);
+  const [currentBackground, setCurrentBackground] = useState(null);
   const swiperRef = useRef(null);
+
+
+
   const fetchSliderData = async () => {
     try {
       const response = await axios.get('http://ichlinks.uz/api/site/sliders');
       const data = response.data;
       if (data.success && data.result.rows.length > 0) {
-        setSlidesData(data.result.rows);
+        setSlidesData(data.result.rows)
       } else {
         throw new Error('No slider data found');
       }
@@ -47,6 +59,36 @@ const Home = () => {
       console.error('Error fetching slider data:', error);
     }
   };
+
+  async function GetStatisticsData() {
+    try {
+      const { data } = await axios.get(`http://ichlinks.uz/api/site/statistics`);
+      setStatistics(data.result)
+    } catch (error) {
+      console.log(`Error: ${error}`)
+    }
+  }
+
+
+  async function GetNewsData() {
+    try {
+      const { data } = await axios.get(`http://ichlinks.uz/api/site/news?limit=6&offset=0`);
+      setNewsDatas(data.result)
+    } catch (error) {
+      console.log(`Error: ${error}`)
+    }
+  }
+
+  async function GetPartners() {
+    try {
+      const { data } = await axios.get(`http://ichlinks.uz/api/site/partners`)
+      setPartners(data.result.rows)
+    } catch (error) {
+      console.log(`Error: ${error}`)
+    }
+  }
+
+
   const fetchVideosData = async () => {
     try {
       const response = await axios.get('http://ichlinks.uz/api/site/videos');
@@ -60,9 +102,15 @@ const Home = () => {
       console.error('Error fetching slider data:', error);
     }
   };
+
+
+
   useEffect(() => {
     fetchSliderData(); // Fetch slider data when component mounts
     fetchVideosData();
+    GetStatisticsData();
+    GetNewsData();
+    GetPartners();
   }, []);
 
   const handleSlideChange = (swiper) => {
@@ -127,6 +175,7 @@ const Home = () => {
 
       <div className="home_slider">
         <div className="gradient-overlay"></div>
+
         <Swiper
           spaceBetween={50}
           slidesPerView={'auto'}
@@ -142,22 +191,26 @@ const Home = () => {
           {
             slidesData.map((slide, index) => (
               <SwiperSlide key={index}>
-                <div className="overlay_sider" style={{ backgroundImage: `url(${HomeIMg})` }}>
-                  <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-12">
-                      <div className="left">
-                        <p>Eng yaxshi madaniy meroslar </p>
-                        <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
-                        <div className="buttons">
-                          <button className="more">{slide.buttonText}</button>
+                <div className="overlay_sider" style={{ backgroundImage: `url(${slide.img_path ? encodeURI(slide.img_path) : 'defaultImagePath'})` }}>
+                  <div className="top_object">
+                    <div className="container">
+                    <div className="row">
+                      <div className="col-lg-6 col-md-6 col-sm-12">
+                        <div className="left">
+                          <p>Eng yaxshi madaniy meroslar </p>
+                          <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+                          <div className="buttons">
+                            <button className="more">batafsil</button>
+                          </div>
+                        </div>
+                        {/* .. */}
+                      </div>
+                      <div className="col-lg-6 col-md-6 col-sm-12 ">
+                        <div className="right">
+                          <Links />
                         </div>
                       </div>
-                      {/* .. */}
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 ">
-                      <div className="right">
-                        <Links />
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -202,7 +255,7 @@ const Home = () => {
                         Kiritilgan yil: 2008 y. Nomzodnoma hujjati (YuNESKO): Havola
                       </p>
                     </div>
-                    <button className="bottom_btn">Batafsil</button>
+                    <button className="bottom_btn">{t('more')}</button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -218,7 +271,7 @@ const Home = () => {
                         Kiritilgan yil: 2008 y. Nomzodnoma hujjati (YuNESKO): Havola
                       </p>
                     </div>
-                    <button className="bottom_btn">Batafsil</button>
+                    <button className="bottom_btn">{t('more')}</button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -230,32 +283,32 @@ const Home = () => {
       </section>
       <section className="section-three">
         <div className="container">
-          <h2 className="heading">NOMODIY MADANIY MEROS FILIALLARI</h2>
+          <h2 className="heading">{t('statistics.branchesOfIntangibleCulturalHeritage')}</h2>
           <div className="contents">
             <div className="left">
               <img src={MapImg} />
             </div>
             <div className="right">
-              <h4 className="title">Toshkent shahri</h4>
+              <h4 className="title">{t('statistics.tashkentCity')}</h4>
               <div className="statistic">
                 <div>
-                  <p>Nomoddiy Madaniy Meros</p>
-                  <h3>1</h3>
+                  <p>{t('statistics.nmmsUnderConsideration')} </p>
+                  <h3>{statistics?.nmmsUnderConsideration}</h3>
                 </div>
                 <div>
-                  <p>Nomoddiy Madaniy Meros</p>
-                  <h3>87.2%</h3>
+                  <p>{t('statistics.nmmsInRepresentativeList')}</p>
+                  <h3>{statistics?.nmmsInRepresentativeList}</h3>
                 </div>
                 <div>
-                  <p>Nomoddiy Madaniy Meros</p>
-                  <h3>46</h3>
+                  <p> {t('statistics.nmmsInNationalList')}</p>
+                  <h3>{statistics?.nmmsInNationalList}</h3>
                 </div>
                 <div>
-                  <p>Nomoddiy Madaniy Meros</p>
-                  <h3>1 446</h3>
+                  <p>{t('statistics.nmms')}</p>
+                  <h3>{statistics?.nmms}</h3>
                 </div>
               </div>
-              <button className="bottom_btn">Batafsil</button>
+              <button className="bottom_btn">{t('more')}</button>
             </div>
           </div>
         </div>
@@ -264,18 +317,17 @@ const Home = () => {
       <section className="section-four">
         <div className="container">
           <div className="top">
-            <h2>HABARLAR</h2>
-            <button>BARCHA HABARLAR</button>
+            <h2>{t('news.news')}</h2>
+            <button>{t('news.allNews')}</button>
           </div>
-          <p className="last_news">ENG YANGI HABARLAR</p>
+          <p className="last_news">{t('news.lastNews')}</p>
           <div className="news">
             <div className="row">
-              <HomeNewsCard />
-              <HomeNewsCard />
-              <HomeNewsCard />
-              <HomeNewsCard />
-              <HomeNewsCard />
-              <HomeNewsCard />
+              {newsDatas?.map((el, idx) => (
+                <HomeNewsCard key={idx} data={el} />
+              ))}
+
+
             </div>
 
 
@@ -288,11 +340,11 @@ const Home = () => {
         <div className="container">
           <div className="top">
             <div className="left">
-              <h2>So'nggi maqolalar va kitoblar</h2>
-              <p>Eng zor fotosuratlar</p>
+              <h2>{t('theLastArticlesAndBooks')}</h2>
+              <p>{t('theBestPhotos')}</p>
             </div>
             <div className="right">
-              <button>Barcha maqolalar va kitoblar</button>
+              <button>{t('allPhotos')}</button>
             </div>
           </div>
 
@@ -389,10 +441,10 @@ const Home = () => {
 
             <div className="col-lg-6 col-md-6 col-sm-12 mx-auto">
               <div className="texts">
-                <h3>AUDOMATERIALLAR</h3>
-                <p>ENG ZOR FOTOSURATLAR</p>
+                <h3>{t('audioMaterials')}</h3>
+                <p>{t('theBestAudioMaterials')}</p>
               </div>
-              <button>BARCHA AUDOMATERIALLAR</button>
+              <button>{t('allAudioMaterials')}</button>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 mx-auto ">
               <div className="right">
@@ -440,11 +492,11 @@ const Home = () => {
 
           <div className="top">
             <div className="left">
-              <h3>FOTOSURATLAR</h3>
-              <p>ENG ZOR FOTOSURATLAR</p>
+              <h3>{t('photos')}</h3>
+              <p>{t('theBestPhotos')}</p>
             </div>
             <div className="right">
-              <button>BARCHA FOTOSURATLAR</button>
+              <button>{t('allPhotos')}</button>
             </div>
           </div>
 
@@ -468,31 +520,17 @@ const Home = () => {
             <div className="top">
               <div className="left">
                 <h5>
-                  RESPUBLIKA MILLIY AKSIYA VA QIZIQCHILIK SAN'AT MARKAZI
-                  YANGILIKLARIGA OBUNA BO'LING
+                  {t('subscribeText')}
                 </h5>
                 <form>
                   <input placeholder="NASIROVJAMA@GMAIL.COM" />
-                  <button>OBUNA BO'LISH</button>
+                  <button>{t('subscribe')}</button>
                 </form>
               </div>
-              <div className="right">
-                <h5>SHUNINGDEK, BIZNI TARMOQLARDA KUZATIB BORING</h5>
-                <div className="links">
-                  <FaInstagram />
-                  <FaFacebook />
-                  <FaTwitter />
-                  <FaTelegram />
-                  <FaYoutube />
 
-                </div>
-              </div>
             </div>
-            <p className="desc_bottom">
-              milliy askiya va qiziqchilik san’ati markazi yangiliklariga obuna
-              bo'ling va elektron pochtangizga bir oz tarix qo'shing. Spam va
-              yolg'on ma'lumotlar yo'q. Faqat milliy askiya va qiziqchilik san’ati
-              markazi yangiliklari!
+            <p className="desc_bottom" >
+              {t('textWarning')}
             </p>
           </div>
         </div>
@@ -503,11 +541,11 @@ const Home = () => {
 
           <div className="top">
             <div className="left">
-              <h3>VIDEO GALEREYA</h3>
-              <p className="last_vds">ENG OXIRGI VIDEOLAR</p>
+              <h3>{t('videoGallery')}</h3>
+              <p className="last_vds">{t('lastVideos')}</p>
             </div>
             <div className="right">
-              <button>BARCHA VIDEOLAR</button>
+              <button>{t('allVideos')}</button>
             </div>
           </div>
           <div className="vds_wrp">
@@ -526,12 +564,14 @@ const Home = () => {
       <section className="section-nine">
         <div className="container">
           <div className="partners">
-            <img src={FirstPartner} />
-            <img src={SecondPartner} />
+            {/* {partners?.map((el, idx)=>(
+            <img src={el.img_path} />
+          ))} */}
+            {/* <img src={SecondPartner} />
             <img src={ThirdPartner} />
             <img src={FirstPartner} />
             <img src={SecondPartner} />
-            <img src={ThirdPartner} />
+            <img src={ThirdPartner} /> */}
           </div>
         </div>
       </section>

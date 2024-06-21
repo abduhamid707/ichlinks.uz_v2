@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Links from "../../components/links/Links";
 import "./style.css";
-import { AiOutlineYoutube } from "react-icons/ai";
+import axios from 'axios'
 import { FaChevronRight, FaHome } from "react-icons/fa";
+import AudioMaterialCard from "../../components/audio-material-card/AudioMaterialCard";
+import { useTranslation } from "react-i18next";
 
 const AudioMaterials = () => {
+
+
+
+const [audios, setAudios] = useState([]);
+
+
+const [t, i18n] = useTranslation('global')
+
+async function GetAudios(){
+    try {
+        const { data } = await axios.get(`http://ichlinks.uz/api/site/audios`)
+        console.log(data);
+        if(data.success){
+            setAudios(data.result.rows)
+        }else{
+            console.log(`Failed to fetch audios!`)
+        }
+    } catch (error) {
+         console.log('Error fetching audios: ', error)
+    }
+} 
+
+    useEffect(()=>{
+       GetAudios();
+    }, [])
+
+
+
     return (
         <div className="audio-page">
             <section className="section_one">
@@ -47,48 +77,24 @@ const AudioMaterials = () => {
                         одновременно подпевает халфа).
                     </div>
                     <div className="ads_wrp">
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
-                        <div className="ad_card">
-                            <AiOutlineYoutube />
-                            <p>QARSAK</p>
-                        </div>
+                    {audios?.map((el, idx)=>(
+                        <AudioMaterialCard data={el} key={idx}/>
+                    ))}
+                       {/* <AudioMaterialCard/>
+                       <AudioMaterialCard/>
+                       <AudioMaterialCard/>
+                       <AudioMaterialCard/> */}
+                       
                     </div>
                     <div className="back_navigate">
                         <button className="home">
-                            <FaHome /> Bosh sahifa
+                            <FaHome /> {t('navbar.home')}
                         </button>
                         <button className="next">
                             {" "}
                             <FaChevronRight />{" "}
                         </button>
-                        <button className="about">Videogalereya</button>
+                        <button className="about">{t('navbar.material')}</button>
                     </div>
                 </div>
             </section>

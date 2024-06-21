@@ -22,6 +22,7 @@
     margin: 0 auto;
     padding: 3em 0;
     display: flex;
+    /* gap: 6em; */
     justify-content: space-between;
 }
 
@@ -67,6 +68,10 @@
     gap: 1em;
 }
 
+.contact-page .section_two .container .contacts_ .element h4{
+    font-size: 15px;
+}
+
 .contact-page .section_two .container .contacts_ .element ul {
     display: flex;
     flex-direction: column;
@@ -77,6 +82,7 @@
 .contact-page .section_two .container .contacts_ .element li {
     list-style: none;
     display: flex;
+    /* font-size: 13px; */
     gap: 0.5em;
 }
 

@@ -4,13 +4,62 @@
     "home": "Asosiy",
     "aboutProject": "Loyiha haqida",
     "nmm": "NMM",
+    "search" : "Qidirish",
     "news": "Yangiliklar",
     "regulatoryDocuments": "Normativ xujjatlar",
     "material": "Material",
     "contact": "Aloqa"
   },
+  "theBestPhotos" : "ENG YAXSHI FOTOSURATLAR",
+  "allPhotos" : "BARCHA FOTOSURATLAR",
+  "photos" : "FOTOSURATLAR",
+  "subscribeText" : "RESPUBLIKA MILLIY AKSIYA VA QIZIQCHILIK SAN'ATI SHUNINGDEK, BIZNI TARMOQLARDA KUZATIB BORING! MARKAZ YANGILIKLARIGA OBUNA BO'LING ",
+  "subscribe" : "OBUNA BO'LISH",
+  "textWarning" : "MILLIY ASKIYA VA QIZIQCHILIK SAN’ATI MARKAZI YANGILIKLARIGA OBUNA BO'LING VA ELEKTRON POCHTANGIZGA BIR OZ TARIX QO'SHING. SPAM VA YOLG'ON MA'LUMOTLAR YO'Q. FAQAT MILLIY ASKIYA VA QIZIQCHILIK SAN’ATI MARKAZI YANGILIKLARI!",
+  "videoGallery" : "VIDEO GALERIYA",
+  "numberOfPublications" : "NASHRLAR SONI",
+  "numberOfDownloads" : "Yuklab olishlar soni",
+  "downloadDocument" : "Hujjatni yuklab olish",
+  "lastVideos" : "ENG OXIRGI VIDEOLAR",
+  "watch" : "KO'RISH",
+  "share" : "Ulashish",
+  "enter" : "Kirish",
+  "allVideos" : "BARCHA VIDEOLAR",
+  "allArticlesAndBooks" : "Barcha maqolalar va kitoblar",
+  "audioMaterials" : "AUDIOMATERIALLAR",
+  "theBestAudioMaterials" : "ENG YAXSHI AUDIO MATERIALLAR",
+  "allAudioMaterials" : "BARCHA AUDIO MATERIALLAR",
+  "theLastArticlesAndBooks" : "So'nggi maqolalar va kitoblar",
+  "theBestCulturalHeritages" : "ENG YAXSHI MADANIY MEROSLAR",
+  "statistics" : {
+    "branchesOfIntangibleCulturalHeritage" : "NOMODIY MADANIY MEROS FILIALLARI",
+    "tashkentCity" : "Toshkent shahri",
+    "nmmsUnderConsideration" : "Nmm ko'rib chiqilmoqda",
+    "nmmsInRepresentativeList" : "Nmm vakillik ro'yxatida",
+    "nmmsInNationalList" : "Nmm milliy ro'yxatda",
+    "nmms" : "Nmmlar"
+  },
+  "more" : "BATAFSIL",
+  "news" : {
+    "news" : "XABARLAR",
+    "lastNews" : "ENG SO'NGI XABARLAR",
+    "allNews" : "BARCHA XABARLAR"
+  },
   "footer": {
     "usefulLinks": "Foydali havolalar",
     "allRightsReserved": "Barcha huquqlar himoyalangan"
+  },
+  "contactPage" : {
+    "adres" : "ADRES",
+    "workTime" : "WORK TIME",
+    "contacts" : "CONTACTS",
+    "dataPoint" : "DATA POINT",
+    "bus" : "BUSES",
+    "underground" : "UNDERGROUND",
+    "workingDay" : "Ish kuni",
+    "dayOff" : "Dam olish kuni",
+    "tel" : "Tel",
+    "email" : "Elektron pochta"
   }
+  
 }

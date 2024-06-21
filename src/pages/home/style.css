@@ -1,14 +1,15 @@
 /* .home {
   position: relative;
 } */
-.home_slider{
 
-}
 .home_slider .overlay_sider{
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100%;
+  /* display: flex;
+  align-items: center; */
 /* background: white; */
 }
 .slider-container {
@@ -16,7 +17,12 @@
   width: 80%;
   margin: 0 auto;
 }
-
+.overlay_sider{
+  padding-top: 200px;
+}
+.overlay_sider .row{
+  height: 500px;
+}
 .slide {
   position: relative;
   /* background: red; */
@@ -86,7 +92,7 @@
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  height: 88vh;
+  /* height: 88vh; */
   color: #fcfcfc;
   filter: brightness(93%);
 }
@@ -104,7 +110,7 @@
   pointer-events: none;
 }
 
-.home-page .section_one .top_object .left p {
+.home-page  .top_object .left p {
   font-family: Roboto Condensed;
   font-size: 19px;
   font-weight: 800;
@@ -115,13 +121,15 @@
   text-align: left;
 }
 
-.home-page .section_one .top_object {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 60px; 
+.home-page .section_one .top_object .row {
+  /* align-items: center; */
+  /* margin-top: 40px; */
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* margin-top: 60px;  */
 }
 
-.home-page .section_one .top_object .left h2 {
+.home-page  .top_object .left h2 {
   font-family: Bebas Neue;
   text-transform: uppercase;
   font-size: 40px;
@@ -132,7 +140,7 @@
   text-align: left;
 }
 
-.home-page .section_one .top_object .left .more {
+.home-page  .top_object .left .more {
   width: 381px;
   height: 51pxpx;
   padding: 12px 0px 0px 0px;
@@ -148,7 +156,7 @@
   color: #ffffff;
 }
 
-.home-page .section_one .top_object .left .more:hover {
+.home-page  .top_object .left .more:hover {
   background: #ffffff;
   color: black;
   transition: 0.6s ease;
@@ -182,12 +190,12 @@
 }
 
 .overlay_slider {
-  /* padding: 2.5em 5.7em; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
+  padding: 2.5em 5.7em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
   background-color: rgba(0, 0, 0, 0.5);
   /* Black with 50% opacity */
 }
@@ -224,7 +232,7 @@ section.section-two {
 .custom-button svg {
   font-size: 30px; /* Adjust icon size as needed */
 }
-.section_one .overlay_sider .row .right {
+ .overlay_sider .row .right {
   /* background: red; */
   width: 100%;
   height: 100%;

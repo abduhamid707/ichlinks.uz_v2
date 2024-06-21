@@ -1,0 +1,62 @@
+.news-single-page {
+    min-height: 100vh;
+}
+
+.news-single-page .container {
+    width: 85%;
+    padding: 6em 2em;
+    display: flex;
+    color: #fff;
+    gap: 3em;
+    flex-direction: column;
+}
+
+
+.news-single-page .container .txt_title h1 {
+    font-family: Bebas Neue;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 118.5px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: #fff;
+}
+
+.news-single-page .container .icons{
+    display: flex;
+    gap: 3em;
+}
+
+.news-single-page .container .icons div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.news-single-page .container .icons  div{
+
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-align: left;
+}
+
+.news-single-page .container .img img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+
+.news-single-page .container  .images{
+    display: flex;
+    gap: 3em;
+}
+
+.news-single-page .container  .images img{
+    width: 50%;
+    height: 350px;
+}
