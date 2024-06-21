@@ -4,10 +4,12 @@ import Links from '../../components/links/Links';
 import { FaChevronLeft, FaChevronRight, FaHome } from 'react-icons/fa';
 import NewsCard from '../../components/news-card/NewsCard';
 import currentBackground from "../../assets/icons/news-page.png";
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const News = () => {
   const [newsList, setNewsList] = useState([]);
-
+const [t, i18n] = useTranslation('global');
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -42,7 +44,7 @@ const News = () => {
       </section>
       <section className='section_two'>
         <div className='container'>
-          <h3 className='title'>NASHRLAR SONI: {newsList.length}</h3>
+          <h3 className='title'>{t('numberOfPublications')}: {newsList.length}</h3>
           <div className='news_wrp'>
             {newsList.map(news => (
               <NewsCard key={news.news_id} news={news} />
@@ -61,13 +63,13 @@ const News = () => {
                 <button>3</button>
                 <p>из 157</p>
               </div>
-              <button className='go_'>Перейти <FaChevronRight /></button>
+              <button className='go_'>{t('enter')} <FaChevronRight /></button>
             </div>
           </div>
           <div className="back_navigate">
-            <button className="home"><FaHome /> Bosh sahifa</button>
+            <button className="home"><FaHome /> {t('navbar.home')}</button>
             <button className="next"> <FaChevronRight /> </button>
-            <button className="about">Normativ xujjatlar</button>
+            <button className="about">{t('navbar.news')}</button>
           </div>
         </div>
       </section>

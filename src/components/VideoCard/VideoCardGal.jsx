@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 
 const VideoCardGal = ({ video }) => {
+    const [t, i18n] = useTranslation('global')
     const { currentLang } = useContext(context);
     return (
         <>
@@ -13,19 +14,19 @@ const VideoCardGal = ({ video }) => {
                 <div className="body">
                     <div className="top">
                         <p className="media">MEDIA</p>
-                        <p className="date">August 10, 2023</p>
+                        <p className="date">  {video.createdAt.slice(0, 10)}</p>
                     </div>
                     <h3 className="title_txt">
                         {currentLang === 'uz' ? video.title_uz : currentLang === 'ru' ? video.title_ru : video.title_en}
                     </h3>
                     <ul className="details">
-                        <li>
+                        <li style={{fontSize : "12px"}}>
                             <FaCalendar />
-                            20 июля 2023
+                            {video.createdAt.slice(0, 10)}
                         </li>
                         <li>
                             <FaGlobe />
-                            Ташкент
+                            {t('statistics.tashkentCity')}
                         </li>
                         <li>
                             <FaEye />
@@ -34,7 +35,7 @@ const VideoCardGal = ({ video }) => {
                     </ul>
                     <button className="watch_btn">
                         <FaPlay />
-                        <Link to={`${video.video_id}/${video.video_path}`} className="mb-0">KO'RISH</Link>
+                        <Link to={`${video.video_id}/${video.video_path}`} className="mb-0">{t('watch')}</Link>
                     </button>
                 </div>
             </div>

@@ -4,10 +4,11 @@ import './style.css';
 import Links from '../../components/links/Links';
 import { FaChevronRight, FaChevronLeft, FaHome } from 'react-icons/fa';
 import Doc from '../../components/doc/Doc';
+import { useTranslation } from 'react-i18next';
 
 const DocsPage = () => {
   const [docs, setDocs] = useState([]);
-
+const [t, i18n] = useTranslation('global')
   useEffect(() => {
     const fetchData = async () => { 
       try {
@@ -62,18 +63,18 @@ const DocsPage = () => {
                 <p>из 157</p>
               </div>
               <button className='go_'>
-                Перейти <FaChevronRight />
+                {t('enter')} <FaChevronRight />
               </button>
             </div>
           </div>
           <div className='back_navigate'>
             <button className='home'>
-              <FaHome /> Bosh sahifa
+              <FaHome /> {t('navbar.home')}
             </button>
             <button className='next'>
               <FaChevronRight />{' '}
             </button>
-            <button className='about'>Normativ xujjatlar</button>
+            <button className='about'>{t('navbar.regulatoryDocuments')}</button>
           </div>
         </div>
       </section>

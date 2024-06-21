@@ -4,13 +4,61 @@
     "home": "Home",
     "aboutProject": "About project",
     "nmm": "NMM",
+    "search" : "Search...",
     "news": "News",
     "regulatoryDocuments": "Regulatory documents",
     "material": "Material",
     "contact": "Contact"
   },
+  "theBestPhotos" : "THE BEST PHOTOS",
+  "allPhotos" : "ALL PHOTOS",
+  "photos" : "PHOTOS",
+  "subscribeText" : "REPUBLIC OF NATIONAL ACTION AND FUN ARTS ALSO FOLLOW US ON NETWORKS! SUBSCRIBE TO CENTER NEWS",
+  "subscribe" : "SUBSCRIBE",
+  "textWarning" : "SUBSCRIBE TO THE NEWSLETTER OF THE NATIONAL ASKIA AND CURIOUS ARTS CENTER AND ADD A LITTLE HISTORY TO YOUR EMAIL. NO SPAM AND NO FALSE INFORMATION. NEWS ONLY FROM THE NATIONAL ASKIA AND INTERIOR ARTS CENTER!",
+  "videoGallery" : "VIDEO GALLERY",
+  "numberOfPublications" : "NUMBER OF PUBLICATIONS",
+   "numberOfDownloads" : "Number of downloads",
+   "downloadDocument" : "Download document",
+  "lastVideos" : "LAST VIDEOS",
+  "watch" : "WATCH",
+  "share" : "Share",
+  "enter" : "Enter",
+  "allVideos" : "ALL VIDEOS",
+  "allArticlesAndBooks" : "All articles and books",
+  "audioMaterials" : "AUDIO MATERIALS",
+  "theBestAudioMaterials" : "THE BEST AUDIO MATERIALS",
+  "allAudioMaterials" : "ALL AUDIO MATERIALS",
+  "theLastArticlesAndBooks" : "The last articles and books",
+  "theBestCulturalHeritages" : "THE BEST CULTURAL HERITAGES",
+  "statistics" : {
+    "branchesOfIntangibleCulturalHeritage" : "BRANCHES OF INTANGIBLE CULTURAL HERITAGE",
+    "tashkentCity" : "Tashkent city",
+    "nmmsUnderConsideration" : "Nmm's under consideration ",
+    "nmmsInRepresentativeList" : "Nmm's in representative list",
+    "nmmsInNationalList" : "Nmm's in national list",
+    "nmms" : "Nmms"
+  },
+  "more" : "MORE",
+  "news" : {
+    "news" : "NEWS",
+    "lastNews" : "LAST NEWS",
+    "allNews" : "ALL NEWS"
+  },
   "footer": {
     "usefulLinks": "Useful links",
     "allRightsReserved": "All right reserved"
+  },
+  "contactPage" : {
+    "adres" : "Adres",
+    "workTime" : "WORKING TIME",
+    "contacts" : "CONTACTS",
+    "dataPoint" : "DATA POINT",
+    "bus" : "BUSES",
+    "underground" : "UNDERGROUND",
+    "workingDay" : "Working day",
+    "dayOff" : "Day off",
+    "tel" : "Tel",
+    "email" : "E-mail"
   }
 }

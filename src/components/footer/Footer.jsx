@@ -4,18 +4,20 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { FaChevronRight } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const [t, i18n]  = useTranslation("global");
   return (
     <footer>
       <div className="contents">
         <div className="left">
           <h3>
-            O'ZBEKISTON NOMODDIY <br /> MADANIY MEROSI
+           {t('navbar.title')}
           </h3>
         </div>
         <div className="center">
-          <h4>ALOQA</h4>
+          <h4>{t('navbar.contact')}</h4>
           <ul className="contact">
             <li>
               <MdOutlineEmail />
@@ -33,7 +35,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="right">
-          <h4>FOYDALI HAVOLALAR</h4>
+          <h4>{t('footer.usefulLinks')}</h4>
           <ul className="useful_links">
             <li>
               <FaChevronRight />
@@ -51,7 +53,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="bottom_txt">
-        www.unwto2023.uz © 2023 &nbsp; &nbsp;Barcha huquqlar himoyalangan
+        www.unwto2023.uz © 2023 &nbsp; &nbsp;{t('footer.allRightsReserved')}
       </p>
     </footer>
   );

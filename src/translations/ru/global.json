@@ -4,13 +4,61 @@
     "home": "Главная",
     "aboutProject": "О проекте",
     "nmm": "НММ",
+    "search" : "Поиск...",
     "news": "Новости",
     "regulatoryDocuments": "Нормативные документы",
     "material": "Материал",
     "contact": "Связаться"
   },
+  "theBestPhotos" : "ЛУЧШИЕ ФОТО",
+  "allPhotos" : "ВСЕ ФОТО",
+  "photos" : "ФОТОГРАФИИ",
+  "subscribeText" : "РЕСПУБЛИКА НАЦИОНАЛЬНЫХ ДЕЙСТВИЙ И ЗАБАВНЫХ ИСКУССТВ ТАКЖЕ СЛЕДУЙТЕ ЗА НАМИ В СЕТЯХ! ПОДПИСАТЬСЯ НА НОВОСТИ ЦЕНТРА",
+  "subscribe" : "ПОДПИСАТЬСЯ",
+  "textWarning" : "ПОДПИШИТЕСЬ НА РАССЫЛКУ НАЦИОНАЛЬНОГО ЦЕНТРА АСКИИ И ЛЮБОПЫТНЫХ ИСКУССТВ И ДОБАВЬТЕ НЕМНОГО ИСТОРИИ В СВОЮ ЭЛЕКТРОННУЮ ПОЧТУ. НИКАКОГО СПАМА И НИКАКОЙ ЛОЖНОЙ ИНФОРМАЦИИ. НОВОСТИ ТОЛЬКО ОТ НАЦИОНАЛЬНОГО ЦЕНТРА АСКИА И ИНТЕРЬЕРНЫХ ИСКУССТВ!",
+  "videoGallery" : "ВИДЕО ГАЛЕРЕЯ",
+  "numberOfPublications" : "КОЛИЧЕСТВО ПУБЛИКАЦИЙ",
+  "numberOfDownloads" : "Количество скачиваний",
+  "downloadDocument" : "Скачать документ",
+  "lastVideos" : "ПОСЛЕДНИЕ ВИДЕО",
+  "watch" : "СМОТРЕТЬ",
+  "share" : "Поделиться",
+  "enter" : "Перейти",
+  "allVideos" : "ВСЕ ВИДЕО",
+  "allArticlesAndBooks" : "Все статьи и книги",
+  "audioMaterials" : "АУДИОМАТЕРИАЛЫ",
+  "theBestAudioMaterials" : "ЛУЧШИЕ АУДИОМАТЕРИАЛЫ",
+  "allAudioMaterials" : "ВСЕ АУДИОМАТЕРИАЛЫ",
+  "theLastArticlesAndBooks" : "Последние статьи и книги",
+  "theBestCulturalHeritages" : "ЛУЧШЕЕ КУЛЬТУРНОЕ НАСЛЕДИЕ",
+  "statistics" : {
+    "branchesOfIntangibleCulturalHeritage" : "ОТРАСЛИ НЕМАТЕРИАЛЬНОГО КУЛЬТУРНОГО НАСЛЕДИЯ",
+    "tashkentCity" : "Город Ташкент",
+    "nmmsUnderConsideration" : "Нмм на рассмотрении",
+    "nmmsInRepresentativeList" : "Нмм в представительском списке",
+    "nmmsInNationalList" : "Нмм в национальном списке",
+    "nmms" : "Нмм"
+  },
+  "more" : "ДЕТАЛИ",
+  "news" : {
+    "news" : "НОВОСТИ",
+    "lastNews" : "ПОСЛЕДНИЕ НОВОСТИ",
+    "allNews" : "ВСЕ НОВОСТИ"
+  },
   "footer": {
     "usefulLinks": "Полезные ссылки",
     "allRightsReserved": "Все права защищены"
+  },
+  "contactPage" : {
+    "adres" : "Адрес",
+    "workTime" : "РАБОЧЕЕ ВРЕМЯ",
+    "contacts" : "КОНТАКТЫ",
+    "dataPoint" : "ОРИЕНТИР",
+    "bus" : "АВТОБУСОВ",
+    "underground" : "МЕТРО",
+    "workingDay" : "Рабочий день",
+    "dayOff" : "Выходной",
+    "tel" : "Тел",
+    "email" : "Е-почта"
   }
 }
