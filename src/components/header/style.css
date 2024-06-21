@@ -1,6 +1,6 @@
 header {
   display: flex;
-  position: sticky;
+  position: fixed;
   z-index: 999999;
   width: 100%;
   top: 0%;

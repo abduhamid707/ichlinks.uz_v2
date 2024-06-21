@@ -1,7 +1,16 @@
 /* .home {
   position: relative;
 } */
+.home_slider{
 
+}
+.home_slider .overlay_sider{
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 100vh;
+/* background: white; */
+}
 .slider-container {
   position: relative;
   width: 80%;
@@ -109,7 +118,7 @@
 .home-page .section_one .top_object {
   display: flex;
   justify-content: space-between;
-  margin-top: 60px;
+  margin-top: 60px; 
 }
 
 .home-page .section_one .top_object .left h2 {

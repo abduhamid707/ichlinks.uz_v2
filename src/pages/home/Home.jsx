@@ -33,21 +33,13 @@ import VideoCardGal from "../../components/VideoCard/VideoCardGal";
 const Home = () => {
   const [slidesData, setSlidesData] = useState([]);
   const [videosData, setVideosData] = useState([]);
-  const [currentBackground, setCurrentBackground] = useState(null);
   const swiperRef = useRef(null);
   const fetchSliderData = async () => {
     try {
       const response = await axios.get('http://ichlinks.uz/api/site/sliders');
       const data = response.data;
       if (data.success && data.result.rows.length > 0) {
-        const formattedData = data.result.rows.map(row => ({
-          img: HomeIMg,
-          title: row.title_uz || row.title_ru || row.title_en,
-          description: row.text_uz || row.text_ru || row.text_en,
-          buttonText: "Batafsil", // Customize as needed
-        }));
-        setSlidesData(formattedData);
-        setCurrentBackground(formattedData[0].img); // Set initial background image
+        setSlidesData(data.result.rows);
       } else {
         throw new Error('No slider data found');
       }
@@ -73,98 +65,107 @@ const Home = () => {
     fetchVideosData();
   }, []);
 
-  // const slidesData = [
-  //   {
-  //     img: HomeIMg, // replace with the correct path to the image
-  //     title: "TV channels and movies wherever there is internet!",
-  //     description: "Eng yaxshi madaniy meroslar",
-  //     buttonText: "Batafsil",
-  //   }, {
-  //     img: HomeIMg, // replace with the correct path to the image
-  //     title: "TV channels and movies wherever there is internet!",
-  //     description: "Eng yaxshi madaniy meroslar",
-  //     buttonText: "Batafsil",
-  //   },
-  //   {
-  //     img: HomeIMg, // replace with the correct path to the image
-  //     title: "TV channels and movies wherever there is internet!",
-  //     description: "Eng yaxshi madaniy meroslar",
-  //     buttonText: "Batafsil",
-  //   }, {
-  //     img: HomeIMg, // replace with the correct path to the image
-  //     title: "TV channels and movies wherever there is internet!",
-  //     description: "Eng yaxshi madaniy meroslar",
-  //     buttonText: "Batafsil",
-  //   },
-  //   // Add more slide data here
-  // ];
   const handleSlideChange = (swiper) => {
     const { activeIndex } = swiper; // Get the active slide index
-    setCurrentBackground(slidesData[activeIndex]?.img);
+    // setCurrentBackground(slidesData[activeIndex]?.img);
   };
-  const handlePrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-
+  //   <section className="section_one" style={{ backgroundImage: `url(${currentBackground})` }}>
+  //   <div className="gradient-overlay"></div>
+  //   <div className="container">
+  //     <Swiper
+  //       spaceBetween={50}
+  //       slidesPerView={'auto'}
+  //       centeredSlides={false}
+  //       slidesOffsetBefore={0}
+  //       autoplay={{ delay: 3000 }}
+  //       pagination={{ clickable: true }}
+  //       navigation={false}
+  //       modules={[Autoplay, Navigation]}
+  //       onSlideChange={handleSlideChange}
+  //       ref={swiperRef}
+  //     >
+  //       {
+  //         slidesData.map((slide, index) => (
+  //           <SwiperSlide key={index}>
+  //             <div className="overlay_sider">
+  //               <div className="top_object">
+  //                 <div className="row">
+  //                   <div className="col-lg-6 col-md-6 col-sm-12">
+  //                     <div className="left">
+  //                       <p>Eng yaxshi madaniy meroslar </p>
+  //                       <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+  //                       <div className="buttons">
+  //                         <button className="more">{slide.buttonText}</button>
+  //                       </div>
+  //                     </div>
+  //                     {/* .. */}
+  //                   </div>
+  //                   <div className="col-lg-6 col-md-6 col-sm-12 ">
+  //                     <div className="right">
+  //                       <Links />
+  //                     </div>
+  //                   </div>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </SwiperSlide>
+  //         ))
+  //       }
+  //     </Swiper>
+  //     {/* <div className="slider-buttons">
+  //       <button className="custom-button" onClick={handlePrev}><GrPrevious /></button>
+  //       <button className="custom-button" onClick={handleNext}><GrNext /></button>
+  //     </div> */}
+  //   </div>
+  // </section>
+  // console.log(slide.img_path);
+  slidesData.map(item => {
+    console.log(item.img_path);
+  })
   return (
     <div className="page home-page">
-      <section className="section_one" style={{ backgroundImage: `url(${currentBackground})` }}>
+
+      <div className="home_slider">
         <div className="gradient-overlay"></div>
-        <div className="container">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={'auto'}
-            centeredSlides={false}
-            slidesOffsetBefore={0}
-            autoplay={{ delay: 3000 }}
-            pagination={{ clickable: true }}
-            navigation={false}
-            modules={[Autoplay, Navigation]}
-            onSlideChange={handleSlideChange}
-            ref={swiperRef}
-          >
-            {
-              slidesData.map((slide, index) => (
-                <SwiperSlide key={index}>
-                  <div className="overlay_sider">
-                    <div className="top_object">
-                      <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-12">
-                          <div className="left">
-                            <p>Eng yaxshi madaniy meroslar </p>
-                            <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
-                            <div className="buttons">
-                              <button className="more">{slide.buttonText}</button>
-                            </div>
-                          </div>
-                          {/* .. */}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={'auto'}
+          centeredSlides={false}
+          slidesOffsetBefore={0}
+          autoplay={{ delay: 3000 }}
+          pagination={{ clickable: true }}
+          navigation={false}
+          modules={[Autoplay, Navigation]}
+          onSlideChange={handleSlideChange}
+          ref={swiperRef}
+        >
+          {
+            slidesData.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <div className="overlay_sider" style={{ backgroundImage: `url(${HomeIMg})` }}>
+                  <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
+                      <div className="left">
+                        <p>Eng yaxshi madaniy meroslar </p>
+                        <h2>{slide.title} Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+                        <div className="buttons">
+                          <button className="more">{slide.buttonText}</button>
                         </div>
-                        <div className="col-lg-6 col-md-6 col-sm-12 ">
-                          <div className="right">
-                            <Links />
-                          </div>
-                        </div>
+                      </div>
+                      {/* .. */}
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-12 ">
+                      <div className="right">
+                        <Links />
                       </div>
                     </div>
                   </div>
-                </SwiperSlide>
-              ))
-            }
-          </Swiper>
-          {/* <div className="slider-buttons">
-            <button className="custom-button" onClick={handlePrev}><GrPrevious /></button>
-            <button className="custom-button" onClick={handleNext}><GrNext /></button>
-          </div> */}
-        </div>
-      </section>
+                </div>
+              </SwiperSlide>
+            ))
+          }
+        </Swiper>
+      </div>
 
       <section className="section-two">
         <div className="container">
@@ -511,7 +512,7 @@ const Home = () => {
           </div>
           <div className="vds_wrp">
 
-            {videosData.slice(0,4).map((video, index) => (
+            {videosData.slice(0, 4).map((video, index) => (
               <VideoCardGal key={index} video={video} />
             ))}
 
