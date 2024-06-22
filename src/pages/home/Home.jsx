@@ -32,6 +32,7 @@ import axios from "axios";
 import VideoCardGal from "../../components/VideoCard/VideoCardGal";
 import { useTranslation } from "react-i18next";
 import context from "../../context";
+import PhotoCard from "../../components/PhotoCard/PhotoCard";
 
 const Home = () => {
 
@@ -39,6 +40,7 @@ const Home = () => {
   const [t, i18n] = useTranslation('global')
   const [slidesData, setSlidesData] = useState([]);
   const [videosData, setVideosData] = useState([]);
+  const [photosData, setPhotosData] = useState([]);
   const [statistics, setStatistics] = useState();
   const [partners, setPartners] = useState([]);
   const [newsDatas, setNewsDatas] = useState([]);
@@ -103,6 +105,19 @@ const Home = () => {
       console.error('Error fetching slider data:', error);
     }
   };
+  const fetchPhotosData = async () => {
+    try {
+      const response = await axios.get('http://ichlinks.uz/api/site/photos');
+      const data = response.data;
+      if (data.success && data.result.photos.rows.length > 0) {
+        setPhotosData(data.result.photos.rows);
+      } else {
+        throw new Error('No slider data found');
+      }
+    } catch (error) {
+      console.error('Error fetching slider data:', error);
+    }
+  };
 
 
 
@@ -112,6 +127,7 @@ const Home = () => {
     GetStatisticsData();
     GetNewsData();
     GetPartners();
+    fetchPhotosData();
   }, []);
 
   const handleSlideChange = (swiper) => {
@@ -192,23 +208,23 @@ const Home = () => {
                 <div className="overlay_sider" style={{ backgroundImage: `url(${slide.img_path ? encodeURI(slide.img_path) : 'defaultImagePath'})` }}>
                   <div className="top_object">
                     <div className="container">
-                    <div className="row">
-                      <div className="col-lg-6 col-md-6 col-sm-12">
-                        <div className="left">
-                          <p>Eng yaxshi madaniy meroslar </p>
-                          <h2>{currentLang == 'uz' ?  slide?.text_uz : currentLang == 'ru' ? slide?.text_ru : slide?.text_en}</h2>
-                          <div className="buttons">
-                            <button className="more">batafsil</button>
+                      <div className="row">
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+                          <div className="left">
+                            <p>Eng yaxshi madaniy meroslar </p>
+                            <h2>{currentLang == 'uz' ? slide?.text_uz : currentLang == 'ru' ? slide?.text_ru : slide?.text_en}</h2>
+                            <div className="buttons">
+                              <button className="more">batafsil</button>
+                            </div>
+                          </div>
+                          {/* .. */}
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12 ">
+                          <div className="right">
+                            <Links />
                           </div>
                         </div>
-                        {/* .. */}
                       </div>
-                      <div className="col-lg-6 col-md-6 col-sm-12 ">
-                        <div className="right">
-                          <Links />
-                        </div>
-                      </div>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -501,15 +517,9 @@ const Home = () => {
           <div className="images_wrp">
             <div className="container">
               <div className="row">
-                <div className="col-lg-4 col-md-6 col-sm-12 mx-auto">
-                  <img src={FirstGallery} className="w-100" />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mx-auto">
-                  <img src={ThirdGallery} className="w-100" />
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 mx-auto">
-                  <img src={ThirdGallery} className="w-100" />
-                </div>
+                {photosData?.slice(0, 2).map((el, idx) => (
+                  <PhotoCard key={idx} data={el} />
+                ))}
               </div>
             </div>
           </div>
